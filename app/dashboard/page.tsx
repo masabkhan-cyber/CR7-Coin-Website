@@ -46,7 +46,7 @@ const launchMilestones = [
     type: "PRESALE",
     milestone: "Whitelist Opens",
     description: "Early supporters get priority access to CR7BABY",
-    timestamp: "August 15, 2025",
+    timestamp: "June 7, 2025",
     icon: Star,
   },
   {
@@ -54,7 +54,7 @@ const launchMilestones = [
     type: "LAUNCH",
     milestone: "PancakeSwap Listing",
     description: "CR7BABY goes live for trading",
-    timestamp: "September 7, 2025",
+    timestamp: "June 14, 2025",
     icon: Rocket,
   },
   {
@@ -62,7 +62,7 @@ const launchMilestones = [
     type: "MARKETING",
     milestone: "Global Campaign",
     description: "Massive marketing push across social media",
-    timestamp: "September 10, 2025",
+    timestamp: "June 17, 2025",
     icon: Target,
   },
 ]
@@ -79,9 +79,9 @@ export default function Dashboard() {
     seconds: 0,
   })
 
-  // Set launch date to September 7, 2025
+  // Set launch date to June 14, 2025
   useEffect(() => {
-    const launchDate = new Date("September 7, 2025 12:00:00").getTime()
+    const launchDate = new Date("June 14, 2025 12:00:00").getTime()
 
     const timer = setInterval(() => {
       const now = new Date().getTime()
@@ -140,19 +140,37 @@ export default function Dashboard() {
             >
               CR7BABY
             </motion.h1>
-            <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
+            <div className="flex items-center gap-1 sm:gap-2 md:gap-3 flex-shrink-0">
               <Button
-                onClick={() => window.open("https://t.me/CR7BABY_Official", "_blank")}
+                onClick={() => window.open("https://t.me/Babyronald", "_blank")}
                 variant="outline"
                 size="sm"
-                className="border-red-500 text-red-400 hover:bg-red-500 hover:text-white text-xs px-2 py-1 md:text-sm md:px-4 md:py-2 whitespace-nowrap"
+                className="border-red-500 text-red-400 hover:bg-red-500 hover:text-white text-xs px-1.5 py-1 md:text-sm md:px-3 md:py-2 whitespace-nowrap"
               >
                 <span className="hidden sm:inline">Join </span>Telegram
               </Button>
               <Button
+                onClick={() => window.open("https://x.com/cr7thegoat23?s=11", "_blank")}
+                variant="outline"
+                size="sm"
+                className="border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-white text-xs px-1.5 py-1 md:text-sm md:px-3 md:py-2 whitespace-nowrap"
+              >
+                <span className="hidden sm:inline">Follow on </span>X
+              </Button>
+              <Button
+                onClick={() =>
+                  window.open("https://discord.com/channels/1382798781883482134/13827987829405778340", "_blank")
+                }
+                variant="outline"
+                size="sm"
+                className="border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white text-xs px-1.5 py-1 md:text-sm md:px-3 md:py-2 whitespace-nowrap"
+              >
+                <span className="hidden sm:inline">Join </span>Discord
+              </Button>
+              <Button
                 onClick={handleWhitelist}
                 size="sm"
-                className="bg-gradient-to-r from-red-600 to-yellow-600 hover:from-red-700 hover:to-yellow-700 text-xs px-2 py-1 md:text-sm md:px-4 md:py-2 whitespace-nowrap"
+                className="bg-gradient-to-r from-red-600 to-yellow-600 hover:from-red-700 hover:to-yellow-700 text-xs px-1.5 py-1 md:text-sm md:px-3 md:py-2 whitespace-nowrap"
               >
                 Whitelist<span className="hidden sm:inline"> Now</span>
               </Button>
@@ -169,7 +187,7 @@ export default function Dashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-red-400 via-yellow-400 to-white bg-clip-text text-transparent mb-4 md:mb-6"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-red-400 via-yellow-400 to-white bg-clip-text text-transparent mb-2 md:mb-4 px-2 leading-tight"
             >
               CR7BABY - The Next Football Legend
             </motion.h1>
@@ -177,10 +195,10 @@ export default function Dashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-base md:text-xl text-gray-300 max-w-2xl mx-auto mb-4 md:mb-6 px-4"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto mb-3 md:mb-6 px-3 sm:px-4 leading-relaxed"
             >
               The newest and most exciting meme coin celebrating the future of football greatness. Join early and be
-              part of the next 1000x gem! SIUUUU! 🚀
+              part of the next 1000x gem! <span className="whitespace-nowrap">SIUUUU! 🚀</span>
             </motion.p>
 
             {/* Countdown Timer */}
@@ -301,8 +319,8 @@ export default function Dashboard() {
             >
               <Calendar className="w-8 md:w-12 h-8 md:h-12 text-white mx-auto mb-4" />
               <h3 className="text-base sm:text-lg md:text-3xl font-bold text-white mb-2 leading-tight px-2">
-                <span className="block sm:hidden">Sep 7, 2025</span>
-                <span className="hidden sm:block">September 7, 2025</span>
+                <span className="block sm:hidden">Jun 14, 2025</span>
+                <span className="hidden sm:block">June 14, 2025</span>
               </h3>
               <p className="text-gray-300 text-sm md:text-base">Launch Date</p>
             </motion.div>
@@ -510,7 +528,7 @@ export default function Dashboard() {
                   <p className="text-gray-300 mb-4 md:mb-6 text-sm md:text-base">
                     Questions about the presale or token?
                   </p>
-                  <p className="text-red-400 font-semibold text-base md:text-lg">info@cr7baby.io</p>
+                  <p className="text-red-400 font-semibold text-base md:text-lg">info@babyronaldo.com</p>
                 </motion.div>
                 <motion.div
                   whileHover={{ scale: 1.05, y: -5 }}
@@ -521,7 +539,7 @@ export default function Dashboard() {
                   <p className="text-gray-300 mb-4 md:mb-6 text-sm md:text-base">
                     Join our growing community of future holders
                   </p>
-                  <p className="text-yellow-400 font-semibold text-base md:text-lg">@CR7BABY_Official</p>
+                  <p className="text-yellow-400 font-semibold text-base md:text-lg">@Babyronald</p>
                 </motion.div>
               </div>
             </CardContent>
@@ -625,7 +643,7 @@ export default function Dashboard() {
                   <div className="space-y-3 md:space-y-4">
                     <div className="p-3 md:p-4 bg-gradient-to-r from-red-600/20 to-yellow-600/20 rounded-lg border border-red-500/30">
                       <h5 className="text-white font-semibold mb-2 text-sm md:text-base">
-                        Phase 1: Pre-Launch (August 2025) 🚀
+                        Phase 1: Pre-Launch (June 2025) 🚀
                       </h5>
                       <ul className="text-gray-300 space-y-1 text-xs md:text-sm">
                         <li>• Website and social media launch</li>
@@ -636,7 +654,7 @@ export default function Dashboard() {
                     </div>
                     <div className="p-3 md:p-4 bg-gradient-to-r from-yellow-600/20 to-white/20 rounded-lg border border-yellow-500/30">
                       <h5 className="text-white font-semibold mb-2 text-sm md:text-base">
-                        Phase 2: Launch (September 2025) ⚽
+                        Phase 2: Launch (June 14, 2025) ⚽
                       </h5>
                       <ul className="text-gray-300 space-y-1 text-xs md:text-sm">
                         <li>• Presale on PinkSale</li>

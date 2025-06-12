@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Crown, TrendingUp, Rocket } from "lucide-react"
+import { ArrowRight, Crown, TrendingUp, Rocket, BellIcon as BrandTelegram, Twitter, MessageSquare } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -128,7 +128,7 @@ export default function LandingPage() {
           className="flex flex-wrap justify-center gap-6 mb-12"
         >
           {[
-            { icon: Rocket, text: "Launching September 2025" },
+            { icon: Rocket, text: "Launching June 14th" },
             { icon: Crown, text: "Baby GOAT Status" },
             { icon: TrendingUp, text: "1000x Potential" },
           ].map((feature, index) => (
@@ -143,26 +143,64 @@ export default function LandingPage() {
           ))}
         </motion.div>
 
-        {/* Explore button */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 2.5 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Link href="/dashboard">
+        {/* Explore button and social media buttons */}
+        <div className="flex flex-col items-center gap-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 2.5 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link href="/dashboard">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-red-600 to-yellow-600 hover:from-red-700 hover:to-yellow-700 text-white px-8 py-4 text-lg rounded-full shadow-2xl border-0 group"
+              >
+                <span className="mr-2">Join Presale Whitelist</span>
+                <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}>
+                  <ArrowRight className="w-5 h-5" />
+                </motion.div>
+              </Button>
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 2.8 }}
+            className="flex flex-wrap justify-center gap-3"
+          >
             <Button
-              size="lg"
-              className="bg-gradient-to-r from-red-600 to-yellow-600 hover:from-red-700 hover:to-yellow-700 text-white px-8 py-4 text-lg rounded-full shadow-2xl border-0 group"
+              onClick={() => window.open("https://t.me/Babyronald", "_blank")}
+              variant="outline"
+              size="sm"
+              className="border-red-500 text-red-400 hover:bg-red-500 hover:text-white rounded-full"
             >
-              <span className="mr-2">Join Presale Whitelist</span>
-              <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}>
-                <ArrowRight className="w-5 h-5" />
-              </motion.div>
+              <BrandTelegram className="w-4 h-4 mr-1.5" />
+              Telegram
             </Button>
-          </Link>
-        </motion.div>
+            <Button
+              onClick={() => window.open("https://x.com/cr7thegoat23?s=11", "_blank")}
+              variant="outline"
+              size="sm"
+              className="border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-white rounded-full"
+            >
+              <Twitter className="w-4 h-4 mr-1.5" />X
+            </Button>
+            <Button
+              onClick={() =>
+                window.open("https://discord.com/channels/1382798781883482134/13827987829405778340", "_blank")
+              }
+              variant="outline"
+              size="sm"
+              className="border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white rounded-full"
+            >
+              <MessageSquare className="w-4 h-4 mr-1.5" />
+              Discord
+            </Button>
+          </motion.div>
+        </div>
 
         {/* Floating particles effect */}
         <div className="absolute inset-0 pointer-events-none">
