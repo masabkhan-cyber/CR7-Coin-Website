@@ -140,37 +140,68 @@ export default function Dashboard() {
             >
               CR7BABY
             </motion.h1>
-            <div className="flex items-center gap-1 sm:gap-2 md:gap-3 flex-shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 flex-shrink-0">
               <Button
                 onClick={() => window.open("https://t.me/Babyronald", "_blank")}
-                variant="outline"
-                size="sm"
-                className="border-red-500 text-red-400 hover:bg-red-500 hover:text-white text-xs px-1.5 py-1 md:text-sm md:px-3 md:py-2 whitespace-nowrap"
+                variant="ghost"
+                size="icon"
+                className="rounded-full bg-white/10 hover:bg-red-500/80 hover:text-white text-red-400 w-8 h-8 md:w-10 md:h-10"
+                aria-label="Join Telegram"
               >
-                <span className="hidden sm:inline">Join </span>Telegram
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-4 h-4 md:w-5 md:h-5"
+                >
+                  <path d="M21.73 2.27a2 2 0 0 0-2.83 0L2.27 18.9a2 2 0 0 0 0 2.83 2 2 0 0 0 2.83 0L21.73 5.1a2 2 0 0 0 0-2.83Z" />
+                  <path d="m12 10-8 8 8-2 4-6Z" />
+                  <path d="M16 8 2 22" />
+                  <path d="m17 15 5-5" />
+                </svg>
               </Button>
               <Button
                 onClick={() => window.open("https://x.com/cr7thegoat23?s=11", "_blank")}
-                variant="outline"
-                size="sm"
-                className="border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-white text-xs px-1.5 py-1 md:text-sm md:px-3 md:py-2 whitespace-nowrap"
+                variant="ghost"
+                size="icon"
+                className="rounded-full bg-white/10 hover:bg-black hover:text-white text-white w-8 h-8 md:w-10 md:h-10"
+                aria-label="Follow on X"
               >
-                <span className="hidden sm:inline">Follow on </span>X
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-4 h-4 md:w-5 md:h-5"
+                >
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
               </Button>
               <Button
                 onClick={() =>
                   window.open("https://discord.com/channels/1382798781883482134/13827987829405778340", "_blank")
                 }
-                variant="outline"
-                size="sm"
-                className="border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white text-xs px-1.5 py-1 md:text-sm md:px-3 md:py-2 whitespace-nowrap"
+                variant="ghost"
+                size="icon"
+                className="rounded-full bg-white/10 hover:bg-indigo-600 hover:text-white text-indigo-400 w-8 h-8 md:w-10 md:h-10"
+                aria-label="Join Discord"
               >
-                <span className="hidden sm:inline">Join </span>Discord
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-4 h-4 md:w-5 md:h-5"
+                >
+                  <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.39-.444.977-.608 1.414a17.27 17.27 0 0 0-5.487 0 12.623 12.623 0 0 0-.617-1.414.077.077 0 0 0-.079-.036c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.202 13.202 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z" />
+                </svg>
               </Button>
               <Button
                 onClick={handleWhitelist}
                 size="sm"
-                className="bg-gradient-to-r from-red-600 to-yellow-600 hover:from-red-700 hover:to-yellow-700 text-xs px-1.5 py-1 md:text-sm md:px-3 md:py-2 whitespace-nowrap"
+                className="bg-gradient-to-r from-red-600 to-yellow-600 hover:from-red-700 hover:to-yellow-700 text-xs px-2 py-1 md:text-sm md:px-3 md:py-2 whitespace-nowrap ml-1"
               >
                 Whitelist<span className="hidden sm:inline"> Now</span>
               </Button>
