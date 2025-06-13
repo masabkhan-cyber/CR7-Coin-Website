@@ -78,15 +78,40 @@ export default function Dashboard() {
     minutes: 0,
     seconds: 0,
   })
+  const [isLaunched, setIsLaunched] = useState(false)
+  const [isFlipping, setIsFlipping] = useState(false)
 
-  // Set launch date to June 13, 2025
+  // Set launch date to June 13, 2025 in Pakistan time (UTC+5)
   useEffect(() => {
+    // Pakistan is UTC+5
+    const pakistanTimeOffset = 5 * 60 * 60 * 1000 // 5 hours in milliseconds
+
+    // Create launch date in Pakistan time
     const launchDate = new Date("June 13, 2025 12:00:00").getTime()
 
     const timer = setInterval(() => {
+      // Get current time in Pakistan
       const now = new Date().getTime()
-      const distance = launchDate - now
+      // Add Pakistan offset to get Pakistan time
+      const pakistanNow = now + (pakistanTimeOffset - new Date().getTimezoneOffset() * 60 * 1000)
 
+      // Calculate remaining time
+      const distance = launchDate - pakistanNow
+
+      // Check if launch time has passed
+      if (distance <= 0) {
+        clearInterval(timer)
+        setCountdown({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        })
+        setIsLaunched(true)
+        return
+      }
+
+      // Calculate time units
       setCountdown({
         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
         hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
@@ -97,6 +122,20 @@ export default function Dashboard() {
 
     return () => clearInterval(timer)
   }, [])
+
+  // Flip animation every 5 seconds
+  useEffect(() => {
+    if (isLaunched) {
+      const flipInterval = setInterval(() => {
+        setIsFlipping(true)
+        setTimeout(() => {
+          setIsFlipping(false)
+        }, 1000)
+      }, 5000)
+
+      return () => clearInterval(flipInterval)
+    }
+  }, [isLaunched])
 
   const handleWhitelist = () => {
     setIsWhitelistOpen(true)
@@ -115,6 +154,18 @@ export default function Dashboard() {
 
   const handleRoadmap = () => {
     setIsRoadmapOpen(true)
+  }
+
+  // Flip animation variants
+  const flipVariants = {
+    front: {
+      rotateX: 0,
+      transition: { duration: 0.6 },
+    },
+    flipping: {
+      rotateX: 180,
+      transition: { duration: 0.6 },
+    },
   }
 
   return (
@@ -232,33 +283,67 @@ export default function Dashboard() {
               part of the next 1000x gem! <span className="whitespace-nowrap">SIUUUU! 🚀</span>
             </motion.p>
 
-            {/* Countdown Timer */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="mb-6 md:mb-8"
+
+{/* Countdown Timer */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.5 }}
+  className="mb-6 md:mb-8 text-center"
+>
+  <h3 className="text-white text-lg md:text-xl mb-4">
+    {isLaunched ? "We Have Launched!" : "Launching In (Pakistan Time):"}
+  </h3>
+
+  {/* NEW: Outer wrapper with fixed height & relative */}
+  <div className="relative w-fit mx-auto" style={{ perspective: 800, height: "100px" }}>
+    <motion.div
+      className="relative w-full h-full"
+      style={{ transformStyle: "preserve-3d" }}
+      animate={{ rotateX: isLaunched && isFlipping ? 180 : 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      {/* Front: TIMER */}
+      <div
+        className="absolute inset-0 flex justify-center items-center backface-hidden"
+        style={{ backfaceVisibility: "hidden" }}
+      >
+        <div className="flex gap-2 md:gap-4">
+          {["days", "hours", "minutes", "seconds"].map((unit) => (
+            <div
+              key={unit}
+              className="bg-black/30 rounded-lg p-2 md:p-3 w-16 md:w-20"
             >
-              <h3 className="text-white text-lg md:text-xl mb-4">Launching In:</h3>
-              <div className="flex justify-center gap-2 md:gap-4">
-                <div className="bg-black/30 rounded-lg p-2 md:p-3 w-16 md:w-20">
-                  <div className="text-xl md:text-3xl font-bold text-yellow-400">{countdown.days}</div>
-                  <div className="text-gray-400 text-xs md:text-sm">Days</div>
-                </div>
-                <div className="bg-black/30 rounded-lg p-2 md:p-3 w-16 md:w-20">
-                  <div className="text-xl md:text-3xl font-bold text-yellow-400">{countdown.hours}</div>
-                  <div className="text-gray-400 text-xs md:text-sm">Hours</div>
-                </div>
-                <div className="bg-black/30 rounded-lg p-2 md:p-3 w-16 md:w-20">
-                  <div className="text-xl md:text-3xl font-bold text-yellow-400">{countdown.minutes}</div>
-                  <div className="text-gray-400 text-xs md:text-sm">Minutes</div>
-                </div>
-                <div className="bg-black/30 rounded-lg p-2 md:p-3 w-16 md:w-20">
-                  <div className="text-xl md:text-3xl font-bold text-yellow-400">{countdown.seconds}</div>
-                  <div className="text-gray-400 text-xs md:text-sm">Seconds</div>
-                </div>
+              <div className="text-xl md:text-3xl font-bold text-yellow-400">
+                {isLaunched ? "00" : String(countdown[unit]).padStart(2, "0")}
               </div>
-            </motion.div>
+              <div className="text-gray-400 text-xs md:text-sm">
+                {unit.charAt(0).toUpperCase() + unit.slice(1)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Back: LAUNCHED */}
+      <div
+        className="absolute inset-0 flex items-center justify-center backface-hidden"
+        style={{
+          backfaceVisibility: "hidden",
+          transform: "rotateX(180deg)",
+        }}
+      >
+        <div className="bg-gradient-to-r from-red-600 to-yellow-600 rounded-xl px-6 py-4 inline-block">
+          <span className="text-3xl md:text-5xl font-bold text-white">
+            LAUNCHED 🚀
+          </span>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</motion.div>
+
+
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -271,7 +356,7 @@ export default function Dashboard() {
                 size="lg"
                 className="bg-gradient-to-r from-red-600 to-yellow-600 hover:from-red-700 hover:to-yellow-700 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg rounded-full shadow-2xl w-full sm:w-auto"
               >
-                Join Whitelist
+                {isLaunched ? "Buy Now" : "Join Whitelist"}
               </Button>
               <Button
                 onClick={handleRoadmap}
@@ -350,7 +435,7 @@ export default function Dashboard() {
             >
               <Calendar className="w-8 md:w-12 h-8 md:h-12 text-white mx-auto mb-4" />
               <h3 className="text-base sm:text-lg md:text-3xl font-bold text-white mb-2 leading-tight px-2">
-                <span className="block sm:hidden">Jun 13, 2025</span>
+                <span className="block sm:hidden">June 13, 2025</span>
                 <span className="hidden sm:block">June 13, 2025</span>
               </h3>
               <p className="text-gray-300 text-sm md:text-base">Launch Date</p>
