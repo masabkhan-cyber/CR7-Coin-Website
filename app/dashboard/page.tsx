@@ -54,7 +54,7 @@ const launchMilestones = [
     type: "LAUNCH",
     milestone: "PancakeSwap Listing",
     description: "CR7BABY goes live for trading",
-    timestamp: "June 14, 2025",
+    timestamp: "June 13, 2025",
     icon: Rocket,
   },
   {
@@ -79,9 +79,9 @@ export default function Dashboard() {
     seconds: 0,
   })
 
-  // Set launch date to June 14, 2025
+  // Set launch date to June 13, 2025
   useEffect(() => {
-    const launchDate = new Date("June 14, 2025 12:00:00").getTime()
+    const launchDate = new Date("June 13, 2025 12:00:00").getTime()
 
     const timer = setInterval(() => {
       const now = new Date().getTime()
@@ -165,7 +165,7 @@ export default function Dashboard() {
                 </svg>
               </Button>
               <Button
-                onClick={() => window.open("https://x.com/cr7thegoat23?s=11", "_blank")}
+                onClick={() => window.open("https://x.com/BabyronaldoBR7?t=0zPui5EwXADq0pQ54QX4rA&s=08", "_blank")}
                 variant="ghost"
                 size="icon"
                 className="rounded-full bg-white/10 hover:bg-black hover:text-white text-white w-8 h-8 md:w-10 md:h-10"
@@ -350,8 +350,8 @@ export default function Dashboard() {
             >
               <Calendar className="w-8 md:w-12 h-8 md:h-12 text-white mx-auto mb-4" />
               <h3 className="text-base sm:text-lg md:text-3xl font-bold text-white mb-2 leading-tight px-2">
-                <span className="block sm:hidden">Jun 14, 2025</span>
-                <span className="hidden sm:block">June 14, 2025</span>
+                <span className="block sm:hidden">Jun 13, 2025</span>
+                <span className="hidden sm:block">June 13, 2025</span>
               </h3>
               <p className="text-gray-300 text-sm md:text-base">Launch Date</p>
             </motion.div>
@@ -685,7 +685,7 @@ export default function Dashboard() {
                     </div>
                     <div className="p-3 md:p-4 bg-gradient-to-r from-yellow-600/20 to-white/20 rounded-lg border border-yellow-500/30">
                       <h5 className="text-white font-semibold mb-2 text-sm md:text-base">
-                        Phase 2: Launch (June 14, 2025) ⚽
+                        Phase 2: Launch (June 13, 2025) ⚽
                       </h5>
                       <ul className="text-gray-300 space-y-1 text-xs md:text-sm">
                         <li>• Presale on PinkSale</li>

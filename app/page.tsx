@@ -128,7 +128,7 @@ export default function LandingPage() {
           className="flex flex-wrap justify-center gap-6 mb-12"
         >
           {[
-            { icon: Rocket, text: "Launching June 14th" },
+            { icon: Rocket, text: "Launching June 13th" },
             { icon: Crown, text: "Baby GOAT Status" },
             { icon: TrendingUp, text: "1000x Potential" },
           ].map((feature, index) => (
@@ -206,7 +206,7 @@ export default function LandingPage() {
               className="flex items-center justify-center"
             >
               <Button
-                onClick={() => window.open("https://x.com/cr7thegoat23?s=11", "_blank")}
+                onClick={() => window.open("https://x.com/BabyronaldoBR7?t=0zPui5EwXADq0pQ54QX4rA&s=08", "_blank")}
                 variant="ghost"
                 size="icon"
                 className="rounded-full bg-white/10 hover:bg-black hover:text-white text-white w-12 h-12 md:w-14 md:h-14"
